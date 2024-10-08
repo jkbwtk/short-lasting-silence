@@ -8,7 +8,8 @@
     "build": "pnpm build:client && pnpm build:server",
     "build:client": "vite build --ssrManifest --outDir dist/client",
     "build:server": "vite build --ssr src/entryServer.tsx --outDir dist/server",
-    "preview": "pnpm build && bun ./tools/prerenderPages.ts && cross-env NODE_ENV=production bun ./tools/staticServer",
+    "prerender": "pnpm build && bun ./tools/prerenderPages.ts",
+    "preview": "pnpm prerender && cross-env NODE_ENV=production bun ./tools/staticServer",
     "lint": "biome lint --write && biome format --write"
   },
   "dependencies": {
