@@ -1,0 +1,68 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": [
+      "ES2020",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    /* Bundler mode */
+    "moduleResolution": "Bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js",
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "strictNullChecks": true,
+    "noUncheckedIndexedAccess": true,
+    /* Paths */
+    "rootDir": "src/",
+    "baseUrl": "src",
+    "paths": {
+      "#components/*": [
+        "./components/*"
+      ],
+      "#pages/*": [
+        "./pages/*"
+      ],
+      "#styles/*": [
+        "./styles/*"
+      ],
+      "#assets/*": [
+        "./assets/*"
+      ],
+      "#providers/*": [
+        "./providers/*"
+      ],
+      "#lib/*": [
+        "./lib/*"
+      ],
+      "#routers/*": [
+        "./routers/*"
+      ],
+      // "#locales/*": [
+      //   "./locales/*"
+      // ],
+      // "#shared/*": [
+      //   "../../shared/src/*"
+      // ],
+    }
+  },
+  "include": [
+    "src"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
+}
