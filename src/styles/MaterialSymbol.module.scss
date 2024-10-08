@@ -1,0 +1,103 @@
+@use 'app';
+@use 'symbolUtils';
+
+@import 'https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:FILL@0..1';
+
+
+.material-symbol {
+  @include symbolUtils.symbolFont(0);
+  @include symbolUtils.symbolSize();
+
+  color: white;
+  font-family: 'Material Symbols Rounded' !important;
+
+  user-select: none;
+
+  transition: all ease-in-out .1s;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  flex-shrink: 0;
+}
+
+.smallest {
+  @include symbolUtils.symbolSize(app.$smallestIconSize);
+}
+
+.smaller {
+  @include symbolUtils.symbolSize(app.$smallerIconSize);
+}
+
+.small {
+  @include symbolUtils.symbolSize(app.$smallIconSize);
+}
+
+.alt {
+  @include symbolUtils.symbolSize(app.$altIconSize);
+}
+
+.medium {
+  @include symbolUtils.symbolSize(app.$defaultIconSize);
+}
+
+.big {
+  @include symbolUtils.symbolSize(app.$bigIconSize);
+}
+
+.gray {
+  color: app.$gray;
+}
+
+.red {
+  color: app.$red;
+}
+
+.green {
+  color: app.$green;
+}
+
+.blue {
+  color: app.$blue;
+}
+
+.yellow {
+  color: app.$yellow;
+}
+
+.primary {
+  color: app.$primaryColor;
+}
+
+.interactive {
+  @include symbolUtils.interactive();
+}
+
+.gray-highlight {
+  @include symbolUtils.highlight(app.$grayBright);
+}
+
+.red-highlight {
+  @include symbolUtils.highlight(app.$redBright);
+}
+
+.green-highlight {
+  @include symbolUtils.highlight(app.$greenBright);
+}
+
+.blue-highlight {
+  @include symbolUtils.highlight(app.$blueBright);
+}
+
+.yellow-highlight {
+  @include symbolUtils.highlight(app.$yellowBright);
+}
+
+.primary-highlight {
+  @include symbolUtils.highlight(app.$primaryBrightColor);
+}
+
+.filled {
+  @include symbolUtils.symbolFont(1);
+}
