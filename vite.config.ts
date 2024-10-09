@@ -1,3 +1,6 @@
+/// <reference types="vitest" />
+/// <reference types="vite/client" />
+
 import { defineConfig } from 'vite';
 import solid from 'vite-plugin-solid';
 import checker from 'vite-plugin-checker';
@@ -58,5 +61,12 @@ export default defineConfig({
         api: 'modern-compiler',
       },
     },
+  },
+
+  test: {
+    environment: 'jsdom',
+    globals: true,
+    setupFiles: ['node_modules/@testing-library/jest-dom/vitest'],
+    isolate: false,
   },
 });
