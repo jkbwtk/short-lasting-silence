@@ -32,6 +32,7 @@
     "@types/compression": "^1.7.5",
     "@types/express": "^4.17.21",
     "@types/node": "^22.7.4",
+    "@vitest/coverage-v8": "^2.1.2",
     "cross-env": "^7.0.3",
     "jsdom": "^25.0.1",
     "sass-embedded": "^1.79.4",
