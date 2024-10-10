@@ -64,6 +64,15 @@ const FilesystemProvider: ParentComponent = (props) => {
     structuredClone(FilesystemContext.defaultValue[0]),
   );
 
+  const updateSpace = async () => {
+    const { quota, usage } = await navigator.storage.estimate();
+
+    setState({
+      totalSpace: quota,
+      usedSpace: usage,
+    });
+  };
+
   const getRootHandle = (): FileSystemDirectoryHandle => {
     if (!state.rootHandle) {
       throw new Error('FilesystemProvider: rootHandle not set');
@@ -95,6 +104,8 @@ const FilesystemProvider: ParentComponent = (props) => {
     const writable = await fileHandle.createWritable();
     await writable.write(data);
     await writable.close();
+
+    await updateSpace();
   };
 
   const readFile = async (name: string): Promise<File> => {
@@ -114,10 +125,14 @@ const FilesystemProvider: ParentComponent = (props) => {
     const writable = await fileHandle.createWritable();
     await writable.write(data);
     await writable.close();
+
+    await updateSpace();
   };
 
   const deleteFile = async (name: string): Promise<void> => {
     await getRootHandle().removeEntry(name);
+
+    await updateSpace();
   };
 
   const getFileHandle = async (name: string): Promise<FileSystemFileHandle> => {
