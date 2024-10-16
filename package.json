@@ -6,19 +6,18 @@
   "scripts": {
     "dev": "bun ./tools/devServer",
     "build": "pnpm build:client && pnpm build:server",
-    "build:client": "vite build --ssrManifest --outDir dist/client",
-    "build:server": "vite build --ssr src/entryServer.tsx --outDir dist/server",
-    "prerender": "pnpm build && bun ./tools/prerenderPages.ts",
+    "build:client": "cross-env NODE_ENV=production bun run --bun vite build --ssrManifest --outDir dist/client",
+    "build:server": "cross-env NODE_ENV=production bun run --bun vite build --ssr src/entryServer.tsx --outDir dist/server",
+    "prerender": "pnpm build && cross-env NODE_ENV=production bun ./tools/prerenderPages.ts",
     "preview": "pnpm prerender && cross-env NODE_ENV=production bun ./tools/staticServer",
-    "lint": "biome lint --write && biome format --write",
-    "test": "vitest"
+    "lint": "bun run --bun biome lint --write && bun run --bun biome format --write",
+    "test": "bun run --bun vitest"
   },
   "dependencies": {
     "@solidjs/meta": "^0.29.4",
     "@solidjs/router": "^0.14.7",
     "@types/bun": "^1.1.10",
     "compression": "^1.7.4",
-    "dotenv": "^16.4.5",
     "express": "^4.21.0",
     "pure-rand": "^6.1.0",
     "sirv": "^2.0.4",

@@ -5,20 +5,22 @@ import { defineConfig } from 'vite';
 import solid from 'vite-plugin-solid';
 import checker from 'vite-plugin-checker';
 import { resolve } from 'node:path';
-import { environment } from './tools/constants';
+import { environment, isDev } from './tools/constants';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     solid({ ssr: true }),
-    checker({
-      enableBuild: false,
-      overlay: true,
+    isDev
+      ? checker({
+          enableBuild: false,
+          overlay: true,
 
-      typescript: {
-        root: __dirname,
-      },
-    }),
+          typescript: {
+            root: __dirname,
+          },
+        })
+      : undefined,
   ],
 
   server: {

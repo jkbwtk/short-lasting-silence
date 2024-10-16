@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import 'dotenv/config';
 
 const booleanLiteral = z.preprocess((v) => {
   try {
