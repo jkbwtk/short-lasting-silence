@@ -36,7 +36,8 @@
       },
       "style": {
         "noDefaultExport": "off",
-        "useNamingConvention": "off"
+        "useNamingConvention": "off",
+        "useFilenamingConvention": "off"
       }
     }
   },
