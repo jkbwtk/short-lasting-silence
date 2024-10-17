@@ -5,11 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "bun ./tools/devServer",
-    "build": "pnpm build:client && pnpm build:server",
+    "build": "bun run build:client && bun run build:server",
     "build:client": "cross-env NODE_ENV=production bun run --bun vite build --ssrManifest --outDir dist/client",
     "build:server": "cross-env NODE_ENV=production bun run --bun vite build --ssr src/entryServer.tsx --outDir dist/server",
-    "prerender": "pnpm build && cross-env NODE_ENV=production bun ./tools/prerenderPages.ts",
-    "preview": "pnpm prerender && cross-env NODE_ENV=production bun ./tools/staticServer",
+    "prerender": "bun run build && cross-env NODE_ENV=production bun ./tools/prerenderPages.ts",
+    "preview": "bun run prerender && cross-env NODE_ENV=production bun ./tools/staticServer",
     "lint": "bun run --bun biome lint --write && bun run --bun biome format --write",
     "test": "bun run --bun vitest"
   },
