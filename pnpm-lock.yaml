@@ -14,21 +14,9 @@ importers:
       '@solidjs/router':
         specifier: ^0.14.7
         version: 0.14.7(solid-js@1.9.1)
-      '@types/bun':
-        specifier: ^1.1.10
-        version: 1.1.10
-      compression:
-        specifier: ^1.7.4
-        version: 1.7.4
-      express:
-        specifier: ^4.21.0
-        version: 4.21.0
       pure-rand:
         specifier: ^6.1.0
         version: 6.1.0
-      sirv:
-        specifier: ^2.0.4
-        version: 2.0.4
       solid-js:
         specifier: ^1.9.1
         version: 1.9.1
@@ -45,27 +33,36 @@ importers:
       '@testing-library/jest-dom':
         specifier: ^6.5.0
         version: 6.5.0
+      '@types/bun':
+        specifier: ^1.1.10
+        version: 1.1.10
       '@types/compression':
         specifier: ^1.7.5
         version: 1.7.5
       '@types/express':
         specifier: ^4.17.21
         version: 4.17.21
-      '@types/node':
-        specifier: ^22.7.4
-        version: 22.7.4
       '@vitest/coverage-v8':
         specifier: ^2.1.2
         version: 2.1.2(vitest@2.1.2(@types/node@22.7.4)(jsdom@25.0.1)(sass-embedded@1.79.4)(terser@5.34.1))
+      compression:
+        specifier: ^1.7.4
+        version: 1.7.4
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
+      express:
+        specifier: ^4.21.0
+        version: 4.21.0
       jsdom:
         specifier: ^25.0.1
         version: 25.0.1
       sass-embedded:
         specifier: ^1.79.4
         version: 1.79.4
+      sirv:
+        specifier: ^2.0.4
+        version: 2.0.4
       terser:
         specifier: ^5.34.1
         version: 5.34.1
