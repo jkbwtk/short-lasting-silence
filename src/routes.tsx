@@ -6,6 +6,7 @@ import PageNotFound from '#pages/PageNotFound';
 export const routes: RouteDefinition[] = [
   {
     path: '/',
+    info: { title: 'Home' },
     component: () => <Index />,
   },
   {
