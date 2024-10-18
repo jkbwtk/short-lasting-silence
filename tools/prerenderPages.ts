@@ -6,6 +6,10 @@ const template = fs.readFileSync('./dist/client/index.html', 'utf-8');
 
 const routesToPrerender = routes.map((route) => route.path);
 
+if (!fs.existsSync('./dist/static')) {
+  fs.mkdirSync('./dist/static', { recursive: true });
+}
+
 for (const url of routesToPrerender) {
   const rendered = render(url);
 
