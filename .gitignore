@@ -25,3 +25,5 @@ dist-ssr
 
 .env
 playground.ts
+
+src/assets/fonts/

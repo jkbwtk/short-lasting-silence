@@ -1,7 +1,5 @@
 @use 'app';
-
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Sono:wght@300;400;500;600;700&display=swap');
+@use 'fontFaces.scss';
 
 :root {
   font-size: app.$baseFontSize;
