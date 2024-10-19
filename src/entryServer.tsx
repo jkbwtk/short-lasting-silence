@@ -1,9 +1,9 @@
-import { renderToString } from 'solid-js/web';
+import { renderToStringAsync } from 'solid-js/web';
 import App from './App';
 import { routes } from './routes';
 
-export function render(url: string) {
-  const html = renderToString(() => <App url={url} />);
+export async function render(url: string) {
+  const html = await renderToStringAsync(() => <App url={url} />);
   return { html };
 }
 

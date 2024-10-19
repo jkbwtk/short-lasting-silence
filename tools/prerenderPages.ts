@@ -14,7 +14,7 @@ if (!fs.existsSync('./dist/static')) {
 }
 
 for (const url of routesToPrerender) {
-  const rendered = render(url);
+  const rendered = await render(url);
 
   const head = generateHydrationScript();
 
