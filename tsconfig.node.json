@@ -8,7 +8,6 @@
     "target": "ESNext",
     "jsx": "preserve",
     "strict": true,
-    "strictNullChecks": true,
     "noUncheckedIndexedAccess": true
   },
   "include": [

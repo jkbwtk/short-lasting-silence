@@ -27,7 +27,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "strictNullChecks": false,
+    "strictNullChecks": true,
     "noUncheckedIndexedAccess": true,
     /* Paths */
     "rootDir": "src/",

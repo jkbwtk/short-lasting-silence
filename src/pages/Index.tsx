@@ -12,7 +12,7 @@ const Index: Component = () => {
       <For each={routesWithInfo}>
         {({ info, path }) => (
           <div>
-            <A href={path}>{info.title}</A>
+            <A href={path}>{info?.title}</A>
           </div>
         )}
       </For>

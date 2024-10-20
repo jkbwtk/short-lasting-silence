@@ -33,7 +33,7 @@ const AnimatedText: Component<AnimatedTextProps> = (props) => {
       {...props}
       classList={{
         [style.container]: true,
-        [props.class]: true,
+        [props.class ?? '']: true,
         [style.blur]: isRefreshing(),
       }}
     >
