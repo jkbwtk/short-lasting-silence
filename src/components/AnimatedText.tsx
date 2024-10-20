@@ -1,4 +1,4 @@
-import { createEffect, createSignal, type JSX } from 'solid-js';
+import { type JSX, createEffect, createSignal } from 'solid-js';
 
 import style from '#styles/AnimatedText.module.scss';
 

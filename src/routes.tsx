@@ -1,6 +1,6 @@
-import PageNotFound from '#pages/PageNotFound';
 import type { RouteDefinition } from '@solidjs/router';
 import { lazy } from 'solid-js';
+import PageNotFound from '#pages/PageNotFound';
 
 export const routes: RouteDefinition[] = [
   {

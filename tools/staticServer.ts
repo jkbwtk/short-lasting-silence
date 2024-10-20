@@ -1,8 +1,8 @@
-import express from 'express';
-import compression from 'compression';
-import { environment } from './constants';
-import sirv from 'sirv';
 import { readFileSync } from 'node:fs';
+import compression from 'compression';
+import express from 'express';
+import sirv from 'sirv';
+import { environment } from './constants';
 
 const app = express();
 

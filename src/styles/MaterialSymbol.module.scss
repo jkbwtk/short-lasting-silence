@@ -3,7 +3,6 @@
 
 @import 'https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:FILL@0..1';
 
-
 .material-symbol {
   @include symbolUtils.symbolFont(0);
   @include symbolUtils.symbolSize();
@@ -13,7 +12,7 @@
 
   user-select: none;
 
-  transition: all ease-in-out .1s;
+  transition: all ease-in-out 0.1s;
 
   overflow: hidden;
   text-overflow: ellipsis;

@@ -1,10 +1,10 @@
 /// <reference types="vitest" />
 /// <reference types="vite/client" />
 
-import { defineConfig } from 'vite';
-import solid from 'vite-plugin-solid';
-import checker from 'vite-plugin-checker';
 import { resolve } from 'node:path';
+import { defineConfig } from 'vite';
+import checker from 'vite-plugin-checker';
+import solid from 'vite-plugin-solid';
 import { environment, isDev } from './tools/constants';
 
 // https://vitejs.dev/config/

@@ -1,5 +1,5 @@
-import express from 'express';
 import fs from 'node:fs/promises';
+import express from 'express';
 import { generateHydrationScript } from 'solid-js/web';
 import { createServer } from 'vite';
 import { environment } from './constants.js';
