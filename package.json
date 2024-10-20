@@ -10,7 +10,7 @@
     "build:server": "cross-env NODE_ENV=production bun run --bun vite build --ssr src/entryServer.tsx --outDir dist/server",
     "prerender": "bun run build && cross-env NODE_ENV=production bun ./tools/prerenderPages.ts",
     "preview": "bun run prerender && cross-env NODE_ENV=production bun ./tools/staticServer",
-    "lint": "bun run --bun biome lint --write && bun run --bun biome format --write",
+    "lint": "bun run --bun biome check --write",
     "test": "bun run --bun vitest",
     "visualize": "bun run --bun vite-bundle-visualizer -o bundle.html"
   },
