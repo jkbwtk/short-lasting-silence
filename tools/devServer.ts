@@ -1,4 +1,7 @@
+import { type WatchEventType, watch } from 'node:fs';
 import fs from 'node:fs/promises';
+import { join } from 'node:path';
+import { $ } from 'bun';
 import express from 'express';
 import { generateHydrationScript } from 'solid-js/web';
 import { createServer } from 'vite';
@@ -40,4 +43,24 @@ app.use('*', async (req, res) => {
 
 app.listen(environment.WEB_PORT, () => {
   console.log(`Server started at http://localhost:${environment.WEB_PORT}`);
+});
+
+async function handleFileChange(
+  event: WatchEventType,
+  filename: string | Buffer | null,
+) {
+  if (
+    event === 'change' &&
+    typeof filename === 'string' &&
+    filename.endsWith('module.scss')
+  ) {
+    await $`bun run --bun typed-scss-modules ${join('src/styles', filename)} --logLevel error`;
+  }
+}
+
+const watcher = watch('./src/styles', { recursive: false }, handleFileChange);
+
+process.on('SIGINT', () => {
+  watcher.close();
+  process.exit();
 });
