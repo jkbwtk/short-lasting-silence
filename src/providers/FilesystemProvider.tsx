@@ -3,8 +3,6 @@ import { createStore } from 'solid-js/store';
 
 export interface FilesystemContextState {
   ready: boolean;
-
-  rootHandle?: FileSystemDirectoryHandle;
   totalSpace: number;
   usedSpace: number;
 }
@@ -25,9 +23,10 @@ export type FilesystemContextValue = [
 ];
 
 const defaultState: FilesystemContextState = {
-  ready: false,
+  get ready(): boolean {
+    return this.totalSpace > 0;
+  },
 
-  rootHandle: undefined,
   totalSpace: 0,
   usedSpace: 0,
 };
@@ -73,18 +72,14 @@ const FilesystemProvider: ParentComponent = (props) => {
     });
   };
 
-  const getRootHandle = (): FileSystemDirectoryHandle => {
-    if (!state.rootHandle) {
-      throw new Error('FilesystemProvider: rootHandle not set');
-    }
-
-    return state.rootHandle;
+  const getRootHandle = (): Promise<FileSystemDirectoryHandle> => {
+    return navigator.storage.getDirectory();
   };
 
   const listFiles = async (): Promise<Map<string, FileSystemHandle>> => {
     const files = new Map<string, FileSystemHandle>();
 
-    const directoryHandle = getRootHandle();
+    const directoryHandle = await getRootHandle();
 
     for await (const [name, test] of directoryHandle) {
       files.set(name, test);
@@ -97,7 +92,8 @@ const FilesystemProvider: ParentComponent = (props) => {
     name: string,
     data: FileSystemWriteChunkType,
   ): Promise<void> => {
-    const fileHandle = await getRootHandle().getFileHandle(name, {
+    const rootHandle = await getRootHandle();
+    const fileHandle = await rootHandle.getFileHandle(name, {
       create: true,
     });
 
@@ -109,7 +105,8 @@ const FilesystemProvider: ParentComponent = (props) => {
   };
 
   const readFile = async (name: string): Promise<File> => {
-    const fileHandle = await getRootHandle().getFileHandle(name);
+    const rootHandle = await getRootHandle();
+    const fileHandle = await rootHandle.getFileHandle(name);
 
     return await fileHandle.getFile();
   };
@@ -118,7 +115,8 @@ const FilesystemProvider: ParentComponent = (props) => {
     name: string,
     data: FileSystemWriteChunkType,
   ): Promise<void> => {
-    const fileHandle = await getRootHandle().getFileHandle(name, {
+    const rootHandle = await getRootHandle();
+    const fileHandle = await rootHandle.getFileHandle(name, {
       create: false,
     });
 
@@ -130,22 +128,22 @@ const FilesystemProvider: ParentComponent = (props) => {
   };
 
   const deleteFile = async (name: string): Promise<void> => {
-    await getRootHandle().removeEntry(name);
+    const rootHandle = await getRootHandle();
+    await rootHandle.removeEntry(name);
 
     await updateSpace();
   };
 
   const getFileHandle = async (name: string): Promise<FileSystemFileHandle> => {
-    return await getRootHandle().getFileHandle(name);
+    const rootHandle = await getRootHandle();
+    return await rootHandle.getFileHandle(name);
   };
 
   onMount(async () => {
-    const rootHandle = await navigator.storage.getDirectory();
     const { quota, usage } = await navigator.storage.estimate();
 
     setState({
       ready: true,
-      rootHandle,
       totalSpace: quota,
       usedSpace: usage,
     });
