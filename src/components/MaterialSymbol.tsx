@@ -1,5 +1,6 @@
 import { mergeProps } from 'solid-js';
-import { quickSwitch } from '#lib/utils';
+import type { MaterialSymbol as MaterialSymbolType } from '#lib/supportedMaterialSymbols';
+import { type RequiredDefaults, quickSwitch } from '#lib/utils';
 
 import style from '#styles/MaterialSymbol.module.scss';
 
@@ -19,8 +20,8 @@ export type SymbolSizeType =
   | 'medium'
   | 'big';
 
-export interface MaterialSymbolProps {
-  symbol: string;
+export type MaterialSymbolProps = {
+  symbol: MaterialSymbolType;
   color?: SymbolColorType;
   size?: SymbolSizeType;
   interactive?: boolean;
@@ -28,10 +29,9 @@ export interface MaterialSymbolProps {
   filled?: boolean;
   class?: string;
   active?: boolean;
-}
+};
 
-const defaultProps: Required<MaterialSymbolProps> = {
-  symbol: '',
+const defaultProps: RequiredDefaults<MaterialSymbolProps> = {
   color: 'gray',
   size: 'medium',
   interactive: false,
@@ -84,7 +84,6 @@ const MaterialSymbol: Component<MaterialSymbolProps> = (userProps) => {
   return (
     <span
       classList={{
-        'material-symbols-rounded': true,
         [style.materialSymbol]: true,
         [colorClass]: true,
         [sizeClass]: true,
