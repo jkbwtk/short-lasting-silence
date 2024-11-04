@@ -1,0 +1,54 @@
+@use 'app' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+
+  & > div {
+    display: flex;
+    align-items: center;
+  }
+
+  @mixin fontMixin() {
+    width: min-content;
+    white-space: nowrap;
+  }
+
+  .defaultFont {
+    font-size: $defaultFontSize;
+    @include fontMixin();
+  }
+
+  .altFont {
+    font-size: $altFontSize;
+    @include fontMixin();
+  }
+
+  .bigFont {
+    font-size: $bigFontSize;
+    @include fontMixin();
+  }
+
+  .smallFont {
+    font-size: $smallFontSize;
+    @include fontMixin();
+  }
+
+  .tinyFont {
+    font-size: $tinyFontSize;
+    @include fontMixin();
+  }
+
+  .testBox {
+    width: cw(1);
+    height: ch(1);
+
+    background-color: $grayBright;
+  }
+
+  .cuTest {
+    background-color: rgba(255, 0, 0, 0.411);
+
+    margin-left: cw(-1);
+  }
+}

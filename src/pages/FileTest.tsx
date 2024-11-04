@@ -4,8 +4,8 @@ import FilePicker from '#components/FilePicker';
 import FreeSpaceGauge from '#components/FreeSpaceGauge';
 import { useFilesystem } from '#providers/FilesystemProvider';
 
-import style from '#styles/FileTest.module.scss';
 import Widget from '#components/Widget';
+import style from '#styles/FileTest.module.scss';
 
 const FileTest: Component = () => {
   const [state] = useFilesystem();

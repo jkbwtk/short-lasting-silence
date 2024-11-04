@@ -14,6 +14,11 @@ export const routes: RouteDefinition[] = [
     component: lazy(() => import('#pages/FileTest')),
   },
   {
+    path: 'font-test',
+    info: { title: 'Font Test' },
+    component: lazy(() => import('#pages/FontTest')),
+  },
+  {
     path: '/404',
     component: () => <PageNotFound />,
   },
