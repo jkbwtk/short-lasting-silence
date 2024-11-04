@@ -2,9 +2,9 @@ import { type Setter, mergeProps } from 'solid-js';
 import type { RequiredDefaults } from '#lib/utils';
 import style from '#styles/FilePicker.module.scss';
 
-import Widget from '#components/Widget';
-import MaterialSymbol from '#components/MaterialSymbol';
 import Divider from '#components/Divider';
+import MaterialSymbol from '#components/MaterialSymbol';
+import Widget from '#components/Widget';
 
 export type FilePickerProps = {
   accept?: string;

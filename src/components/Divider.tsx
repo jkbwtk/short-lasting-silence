@@ -1,6 +1,6 @@
+import { mergeProps } from 'solid-js';
 import type { RequiredDefaults } from '#lib/utils';
 import style from '#styles/Widget.module.scss';
-import { mergeProps } from 'solid-js';
 
 export type DividerProps = {
   direction?: 'horizontal' | 'vertical';
