@@ -12,13 +12,7 @@ export type SymbolColorType =
   | 'yellow'
   | 'primary';
 export type SymbolHighlightColorType = SymbolColorType | 'none';
-export type SymbolSizeType =
-  | 'smallest'
-  | 'smaller'
-  | 'small'
-  | 'alt'
-  | 'medium'
-  | 'big';
+export type SymbolSizeType = 'tiny' | 'small' | 'alt' | 'medium' | 'big';
 
 export type MaterialSymbolProps = {
   symbol: MaterialSymbolType;
@@ -70,8 +64,7 @@ const MaterialSymbol: Component<MaterialSymbolProps> = (userProps) => {
   );
 
   const sizeClass = quickSwitch<string, SymbolSizeType>(props.size, {
-    smallest: style.smallest,
-    smaller: style.smaller,
+    tiny: style.tiny,
     small: style.small,
     alt: style.alt,
     medium: style.medium,

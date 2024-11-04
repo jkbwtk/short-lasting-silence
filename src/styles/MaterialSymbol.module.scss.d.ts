@@ -16,7 +16,6 @@ export declare const primaryHighlight: string;
 export declare const red: string;
 export declare const redHighlight: string;
 export declare const small: string;
-export declare const smaller: string;
-export declare const smallest: string;
+export declare const tiny: string;
 export declare const yellow: string;
 export declare const yellowHighlight: string;

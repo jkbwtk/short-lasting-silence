@@ -32,30 +32,28 @@
   direction: ltr;
   font-feature-settings: 'liga';
   -moz-osx-font-smoothing: grayscale;
+
+  text-align: center;
 }
 
-.smallest {
-  @include symbolUtils.symbolSize(app.$smallestIconSize);
-}
-
-.smaller {
-  @include symbolUtils.symbolSize(app.$smallerIconSize);
+.tiny {
+  @include symbolUtils.symbolSize(app.$tinyIconSize, app.$tinyFontSize);
 }
 
 .small {
-  @include symbolUtils.symbolSize(app.$smallIconSize);
+  @include symbolUtils.symbolSize(app.$smallIconSize, app.$smallFontSize);
 }
 
 .alt {
-  @include symbolUtils.symbolSize(app.$altIconSize);
+  @include symbolUtils.symbolSize(app.$altIconSize, app.$altFontSize);
 }
 
 .medium {
-  @include symbolUtils.symbolSize(app.$defaultIconSize);
+  @include symbolUtils.symbolSize(app.$defaultIconSize, app.$defaultFontSize);
 }
 
 .big {
-  @include symbolUtils.symbolSize(app.$bigIconSize);
+  @include symbolUtils.symbolSize(app.$bigIconSize, app.$bigFontSize);
 }
 
 .gray {
