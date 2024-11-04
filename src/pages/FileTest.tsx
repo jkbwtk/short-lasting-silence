@@ -1,17 +1,38 @@
+import { Show, createMemo, createSignal } from 'solid-js';
+import AnimatedText from '#components/AnimatedText';
+import FilePicker from '#components/FilePicker';
+import FreeSpaceGauge from '#components/FreeSpaceGauge';
 import { useFilesystem } from '#providers/FilesystemProvider';
-import { onMount } from 'solid-js';
+
+import style from '#styles/FileTest.module.scss';
+import Widget from '#components/Widget';
 
 const FileTest: Component = () => {
   const [state] = useFilesystem();
+  const [file, setFile] = createSignal<File | undefined>(undefined);
+  const imageData = createMemo(() => {
+    const fileSnapshot = file();
 
-  onMount(() => {
-    console.log('Filesystem state:', state);
+    if (!fileSnapshot) {
+      return undefined;
+    }
+
+    return URL.createObjectURL(fileSnapshot);
   });
 
   return (
-    <div>
+    <div style={{ height: '100%' }}>
       FILE TEST
-      <div>FILESYSTEM STATE: {state.ready.toString()}</div>
+      <div>
+        FILESYSTEM INITIALIZED: <AnimatedText value={state.ready.toString()} />
+      </div>
+      <FreeSpaceGauge />
+      <FilePicker class={style.filePicker} setFile={setFile} accept="image/*" />
+      <Show when={imageData()}>
+        <Widget title="File Preview" class={style.previewContainer}>
+          <img src={imageData()} alt="TEST" class={style.preview} />
+        </Widget>
+      </Show>
     </div>
   );
 };

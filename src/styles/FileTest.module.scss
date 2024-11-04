@@ -1,0 +1,16 @@
+@use 'app' as *;
+
+.file-picker {
+  width: cw(30);
+  height: ch(10);
+}
+
+.preview-container {
+  width: cw(30);
+  height: ch(10);
+
+  .preview {
+    height: 100%;
+    width: 100%;
+  }
+}
