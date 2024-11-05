@@ -11,9 +11,8 @@
 @mixin symbolSize($iconSize: app.$defaultIconSize, $fontSize: app.$defaultFontSize) {
   font-size: $iconSize;
   width: app.cw(2, $fontSize);
-  height: $iconSize;
 
-  transform: translateY(calc((app.ch(1, $fontSize) - $iconSize) / 2));
+  line-height: app.ch(1, $fontSize);
 }
 
 @mixin highlight($highlight) {
