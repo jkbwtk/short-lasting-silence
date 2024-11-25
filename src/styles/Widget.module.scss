@@ -106,17 +106,91 @@
 }
 
 .divider {
+  :where(&) {
+    background-color: $borderColor;
+  }
+
   &.horizontal {
     height: $borderSize;
 
-    width: 100%;
+    margin-top: calc((ch(1) - $borderSize) / 2);
+    margin-bottom: calc((ch(1) - $borderSize) / 2);
 
-    background-color: red;
+    &.connectStart {
+      position: relative;
+
+      &::before {
+        content: '';
+
+        position: absolute;
+
+        left: cw(-0.5);
+
+        background-color: inherit;
+
+        width: cw(1);
+        height: $borderSize;
+      }
+    }
+
+    &.connectEnd {
+      position: relative;
+
+      &::after {
+        content: '';
+
+        position: absolute;
+
+        right: cw(-0.5);
+
+        background-color: inherit;
+
+        width: cw(1);
+        height: $borderSize;
+      }
+    }
   }
 
   &.vertical {
     width: $borderSize;
 
-    height: 100%;
+    margin-left: calc((cw(1) - $borderSize) / 2);
+    margin-right: calc((cw(1) - $borderSize) / 2);
+
+    &.connectStart {
+      position: relative;
+
+      &::before {
+        content: '';
+
+        position: absolute;
+
+        top: calc(ch(-0.5) + $borderSize / 2);
+
+        background-color: inherit;
+
+        height: ch(1);
+        width: $borderSize;
+      }
+    }
+
+    &.connectEnd {
+      position: relative;
+
+      &::after {
+        content: '';
+
+        z-index: 99999999;
+
+        position: absolute;
+
+        bottom: ch(-0.5);
+
+        background-color: inherit;
+
+        height: ch(1);
+        width: $borderSize;
+      }
+    }
   }
 }
