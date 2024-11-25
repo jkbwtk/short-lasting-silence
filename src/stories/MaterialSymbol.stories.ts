@@ -34,8 +34,8 @@ export const Default: Story = {
     symbol: 'check_box',
     color: 'primary',
     size: 'medium',
-    interactive: true,
-    highlightColor: 'yellow',
+    interactive: false,
+    highlightColor: 'primary',
     filled: false,
     class: '',
     active: false,
@@ -45,12 +45,12 @@ export const Default: Story = {
 export const Interactive: Story = {
   args: {
     symbol: 'cloud_upload',
-    color: 'blue',
+    color: 'gray',
     size: 'big',
     interactive: true,
-    highlightColor: 'primary',
+    highlightColor: 'green',
     filled: true,
     class: '',
-    active: true,
+    active: false,
   },
 };
