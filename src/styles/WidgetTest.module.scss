@@ -1,0 +1,8 @@
+@use 'app' as *;
+
+.widget {
+  width: cw(20);
+  height: ch(5);
+
+  background-color: #0000ff;
+}
