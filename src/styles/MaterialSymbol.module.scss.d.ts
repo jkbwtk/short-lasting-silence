@@ -8,6 +8,7 @@ export declare const gray: string;
 export declare const grayHighlight: string;
 export declare const green: string;
 export declare const greenHighlight: string;
+export declare const inherit: string;
 export declare const interactive: string;
 export declare const materialSymbol: string;
 export declare const medium: string;

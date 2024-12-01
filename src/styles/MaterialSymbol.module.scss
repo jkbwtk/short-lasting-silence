@@ -81,6 +81,10 @@
   color: app.$primaryColor;
 }
 
+.inherit {
+  color: inherit;
+}
+
 .interactive {
   @include symbolUtils.interactive();
 }

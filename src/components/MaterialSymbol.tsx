@@ -10,7 +10,8 @@ export type SymbolColorType =
   | 'green'
   | 'blue'
   | 'yellow'
-  | 'primary';
+  | 'primary'
+  | 'inherit';
 export type SymbolHighlightColorType = SymbolColorType | 'none';
 export type SymbolSizeType = 'tiny' | 'small' | 'alt' | 'medium' | 'big';
 
@@ -26,7 +27,7 @@ export type MaterialSymbolProps = {
 };
 
 const defaultProps: RequiredDefaults<MaterialSymbolProps> = {
-  color: 'gray',
+  color: 'inherit',
   size: 'medium',
   interactive: false,
   highlightColor: 'none',
@@ -45,7 +46,8 @@ const MaterialSymbol: Component<MaterialSymbolProps> = (userProps) => {
     blue: style.blue,
     yellow: style.yellow,
     primary: style.primary,
-    default: style.gray,
+    inherit: style.inherit,
+    default: style.inherit,
   });
 
   const highlightColorClass = quickSwitch<string, SymbolHighlightColorType>(
@@ -57,6 +59,7 @@ const MaterialSymbol: Component<MaterialSymbolProps> = (userProps) => {
       blue: style.blueHighlight,
       yellow: style.yellowHighlight,
       primary: style.primaryHighlight,
+      inherit: style.inherit,
 
       none: '__ms_no_h__',
       default: '__ms_no_h__',
