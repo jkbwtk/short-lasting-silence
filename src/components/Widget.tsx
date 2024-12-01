@@ -20,12 +20,7 @@ function Widget<T extends ValidComponent = 'div'>(props: Widget<T>) {
       }}
     >
       <div class={style.border} />
-      <div class={style.title}>
-        {props.title}
-
-        <div class={style.decoratorLeft} />
-        <div class={style.decoratorRight} />
-      </div>
+      <div class={style.title}>{props.title}</div>
 
       {props.children}
     </Dynamic>

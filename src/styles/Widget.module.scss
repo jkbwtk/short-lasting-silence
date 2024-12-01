@@ -27,13 +27,13 @@
     max-width: calc(100% - cw(3));
 
     top: 0;
-    left: cw(1.5);
+    left: cw(2);
 
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 
-    background-color: inherit;
+    backdrop-filter: blur(0.2rem);
 
     color: $textBrightColor;
 
@@ -44,44 +44,7 @@
 
     border-width: 0;
 
-    padding: 0 cw(1);
-
-    @mixin title-decorator {
-      position: absolute;
-      box-sizing: border-box;
-
-      width: cw(0.5);
-      height: ch(0.5);
-
-      bottom: $borderSize * 1.5;
-
-      border-color: inherit;
-      border-style: inherit;
-
-      border-width: 0;
-
-      border-top-width: $borderSize;
-    }
-
-    .decorator-left {
-      @include title-decorator;
-
-      left: 0;
-
-      border-right-width: $borderSize;
-
-      border-radius: 0 $borderRadius 0 0;
-    }
-
-    .decorator-right {
-      @include title-decorator;
-
-      right: 0;
-
-      border-left-width: $borderSize;
-
-      border-radius: $borderRadius 0 0 0;
-    }
+    padding: 0 cw(0);
   }
 
   .border {
