@@ -3,7 +3,8 @@ import FilesystemProvider from '#providers/FilesystemProvider';
 import '#styles/index.scss';
 import { MetaProvider } from '@solidjs/meta';
 import { Router } from '@solidjs/router';
-import { Suspense, isServer } from 'solid-js/web';
+import { Show, Suspense, isDev, isServer } from 'solid-js/web';
+import DevGrid from '#components/DevGrid';
 import { routes } from './routes';
 
 const App: Component<{ url?: string }> = (props) => {
@@ -12,6 +13,10 @@ const App: Component<{ url?: string }> = (props) => {
       <FilesystemProvider>
         {/* Pre rendering fails without <Suspense>, dev server works fine without it */}
         <Suspense>
+          <Show when={isDev}>
+            <DevGrid />
+          </Show>
+
           <Router url={isServer ? props.url : ''}>{routes}</Router>
         </Suspense>
       </FilesystemProvider>
