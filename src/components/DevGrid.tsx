@@ -1,5 +1,4 @@
 import { Show, createSignal, onCleanup, onMount } from 'solid-js';
-import { Portal } from 'solid-js/web';
 
 import style from '#styles/DevGrid.module.scss';
 
@@ -22,11 +21,9 @@ const DevGrid: Component = () => {
   });
 
   return (
-    <Portal>
-      <Show when={visible()}>
-        <div class={style.devGrid} />
-      </Show>
-    </Portal>
+    <Show when={visible()}>
+      <div class={style.devGrid} />
+    </Show>
   );
 };
 

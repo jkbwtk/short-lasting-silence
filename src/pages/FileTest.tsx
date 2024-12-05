@@ -21,7 +21,7 @@ const FileTest: Component = () => {
   });
 
   return (
-    <div style={{ height: '100%' }}>
+    <div>
       FILE TEST
       <div>
         FILESYSTEM INITIALIZED: <AnimatedText value={state.ready.toString()} />
