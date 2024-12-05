@@ -53,3 +53,11 @@ export type RequiredDefaults<T extends Record<string, unknown>> = Required<
 export const clamp = (value: number, min: number, max: number): number => {
   return Math.min(Math.max(value, min), max);
 };
+
+export const isDev = (): boolean => {
+  try {
+    return import.meta.env.DEV ?? false;
+  } catch {
+    return false;
+  }
+};

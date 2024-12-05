@@ -1,5 +1,6 @@
 import { Show, createSignal, onCleanup, onMount } from 'solid-js';
 
+import { isServer } from 'solid-js/web';
 import style from '#styles/DevGrid.module.scss';
 
 const DevGrid: Component = () => {
@@ -13,11 +14,15 @@ const DevGrid: Component = () => {
   };
 
   onMount(() => {
-    document.addEventListener('keypress', handleEvent);
+    if (!isServer) {
+      document.addEventListener('keypress', handleEvent);
+    }
   });
 
   onCleanup(() => {
-    document.removeEventListener('keypress', handleEvent);
+    if (!isServer) {
+      document.removeEventListener('keypress', handleEvent);
+    }
   });
 
   return (
