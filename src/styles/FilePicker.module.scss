@@ -8,7 +8,7 @@
 
   :where(&) {
     width: fit-content;
-    height: ch(3);
+    height: ch(4);
   }
 
   align-items: center;
@@ -19,8 +19,6 @@
   border-color: $red;
 
   &:hover {
-    border-color: $redBright;
-
     .label {
       color: $textBrightColor;
     }
@@ -41,5 +39,7 @@
 
   .label {
     color: $textColor;
+
+    text-align: center;
   }
 }

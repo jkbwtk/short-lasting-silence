@@ -1,10 +1,7 @@
 import { type Setter, mergeProps } from 'solid-js';
+import Widget from '#components/Widget';
 import type { RequiredDefaults } from '#lib/utils';
 import style from '#styles/FilePicker.module.scss';
-
-import Divider from '#components/Divider';
-import MaterialSymbol from '#components/MaterialSymbol';
-import Widget from '#components/Widget';
 
 export type FilePickerProps = {
   accept?: string;
@@ -51,10 +48,9 @@ const FilePicker: Component<FilePickerProps> = (unmergedProps) => {
       />
 
       <div class={style.label}>
-        <span>Drop file here or click </span>
-        <MaterialSymbol symbol="cloud_upload" size="medium" />
-
-        <Divider />
+        <span>
+          Click to pick a file <br /> or drop one here
+        </span>
       </div>
     </Widget>
   );
