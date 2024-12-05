@@ -26,7 +26,8 @@ body {
 }
 
 #root {
-  height: inherit;
+  min-height: inherit;
+  position: relative;
 }
 
 ::-webkit-scrollbar {
