@@ -15,7 +15,7 @@
     "visualize": "bun run --bun vite-bundle-visualizer -o bundle.html",
     "style-types": "bun run --bun typed-scss-modules src/styles",
     "fetch-symbols": "bun run ./tools/fetchMaterialSymbols",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 6006 --no-open",
     "build-storybook": "storybook build"
   },
   "dependencies": {
