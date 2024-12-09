@@ -1,4 +1,4 @@
-import { type JSX, createEffect, createSignal } from 'solid-js';
+import { type JSX, createEffect, createSignal, onCleanup } from 'solid-js';
 
 import style from '#styles/AnimatedText.module.scss';
 
@@ -26,6 +26,10 @@ const AnimatedText: Component<AnimatedTextProps> = (props) => {
         setIsRefreshing(false);
       }, 300);
     }
+  });
+
+  onCleanup(() => {
+    clearTimeout(timeout);
   });
 
   return (
