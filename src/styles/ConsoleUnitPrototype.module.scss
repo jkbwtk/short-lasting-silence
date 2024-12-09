@@ -1,0 +1,11 @@
+@use 'app' as *;
+
+.prototype {
+  width: cw(1);
+  height: ch(1);
+
+  position: fixed;
+  left: cw(-1);
+
+  pointer-events: none;
+}
