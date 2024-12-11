@@ -8,8 +8,10 @@ const app = express();
 
 const pageNotFoundHtml = readFileSync('./dist/static/404.html', 'utf-8');
 
+const maxAge = 365 * 24 * 60 * 60; // 7 days
+
 app.use(compression({ level: 9 }));
-app.use('/assets', sirv('./dist/client/assets', { extensions: [] }));
+app.use('/assets', sirv('./dist/client/assets', { extensions: [], maxAge }));
 app.use('/', sirv('./dist/static'));
 
 app.get('*', (_req, res) => {
