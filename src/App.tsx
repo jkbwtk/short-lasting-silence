@@ -1,13 +1,11 @@
 /* @refresh reload */
-import '#styles/index.scss';
-import FilesystemProvider from '#providers/FilesystemProvider';
-import '#styles/index.scss';
 import { MetaProvider } from '@solidjs/meta';
 import { Router } from '@solidjs/router';
 import { Show, Suspense, isServer } from 'solid-js/web';
 import ConsoleUnitPrototype from '#components/ConsoleUnitPrototype';
 import DevGrid from '#components/DevGrid';
 import { isDev } from '#lib/utils';
+import FilesystemProvider from '#providers/FilesystemProvider';
 import { routes } from './routes';
 
 const App: Component<{ url?: string }> = (props) => {
