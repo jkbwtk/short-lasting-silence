@@ -47,10 +47,15 @@ $tinyIconSize: 0.8rem;
 $borderRadius: 0.3rem;
 $borderSize: 0.1rem;
 
+:root {
+  --console-unit-height: round(#{$defaultFontSize} * 1.32, 1px);
+  --console-unit-width: #{$defaultFontSize * 0.6};
+}
+
 @function ch($units, $fontSize: $defaultFontSize) {
-  @return calc(round($fontSize * 1.32, 1px) * $units); // loss of precision is intentional
+  @return calc(var(--console-unit-height) * $units);
 }
 
 @function cw($units, $fontSize: $defaultFontSize) {
-  @return $fontSize * 0.6 * $units;
+  @return calc(var(--console-unit-width) * $units);
 }
